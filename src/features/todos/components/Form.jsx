@@ -32,7 +32,7 @@ const Form = () => {
       dispatch(addTodo(newTodo));
       setTodo({ ...todo, id: id, title: "", body: "" });
 
-      console.log(todo, id);
+      // console.log(todo, id);
     }
   };
 
