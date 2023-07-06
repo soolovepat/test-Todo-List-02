@@ -6,33 +6,32 @@ import { addTodo } from "../../../redux/modules/todos.js";
 
 const Form = () => {
   const id = nextId();
-  
+  const dispatch = useDispatch();
+
   const [todo, setTodo] = useState({
-    id: 0,
+    id: id,
     title: "",
     body: "",
     isDone: false,
   });
-  
+
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
     setTodo({ ...todo, [name]: value });
   };
 
-  const onSubmitHandler = (event) => {
+  const onClickHandler = (event) => {
     event.preventDefault();
-    if (todo.title.trim() === "" || todo.body.trim() === "") return;
-    
-    setTodo({
-      id: 0,
-      title: "",
-      body: "",
-      isDone: false,
-    });
+    if (todo.title.trim() !== "" || todo.body.trim() !== "") {
+      dispatch(addTodo(id));
+      setTodo({ ...todo, id: id, title: "", body: "" });
+
+      console.log(todo, id);
+    }
   };
 
   return (
-    <StAddForm onSubmit={onSubmitHandler}>
+    <StAddForm>
       <StInputGroup>
         <StFormLabel>제목</StFormLabel>
         <StAddInput
@@ -49,7 +48,7 @@ const Form = () => {
           onChange={onChangeHandler}
         />
       </StInputGroup>
-      <StAddButton>추가하기</StAddButton>
+      <StAddButton onClick={onClickHandler}>추가하기</StAddButton>
     </StAddForm>
   );
 };

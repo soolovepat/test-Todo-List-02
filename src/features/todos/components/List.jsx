@@ -14,6 +14,7 @@ const List = () => {
 
   const onToggleStatusTodo = (id) => {
     dispatch(toggleStatusTodo(id));
+    console.log(id, todos);
   };
 
   return (
@@ -74,7 +75,7 @@ const List = () => {
                   </StButton>
                   <StButton
                     borderColor="green"
-                    onClick={onToggleStatusTodo}
+                    onClick={() => onToggleStatusTodo(todo.id)}
                   >
                     {todo.isDone ? "취소!" : "완료!"}
                   </StButton>
