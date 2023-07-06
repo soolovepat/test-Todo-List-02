@@ -10,11 +10,11 @@ const List = () => {
 
   const onDeleteTodo = (id) => {
     dispatch(deleteTodo(id));
+    console.log(id, todos);
   };
 
   const onToggleStatusTodo = (id) => {
     dispatch(toggleStatusTodo(id));
-    console.log(id, todos);
   };
 
   return (
