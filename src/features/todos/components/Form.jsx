@@ -22,8 +22,14 @@ const Form = () => {
 
   const onClickHandler = (event) => {
     event.preventDefault();
-    if (todo.title.trim() !== "" || todo.body.trim() !== "") {
-      dispatch(addTodo(id));
+    const newTodo = {
+      id: id,
+      title: todo.title,
+      body: todo.body,
+      isDone: false,
+    };
+    if (todo.title.trim() !== "" && todo.body.trim() !== "") {
+      dispatch(addTodo(newTodo));
       setTodo({ ...todo, id: id, title: "", body: "" });
 
       console.log(todo, id);
