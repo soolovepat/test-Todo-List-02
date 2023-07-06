@@ -31,8 +31,6 @@ const Form = () => {
     if (todo.title.trim() !== "" && todo.body.trim() !== "") {
       dispatch(addTodo(newTodo));
       setTodo({ ...todo, id: id, title: "", body: "" });
-
-      // console.log(todo, id);
     }
   };
 

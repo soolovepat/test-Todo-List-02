@@ -5,18 +5,21 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getTodoByID } from "../redux/modules/todos.js";
 
 const Detail = () => {
+  const todo = useSelector((state) => state.todos.todo);
   const dispatch = useDispatch();
-  const todo = useSelector((state) => state.todos.todos);
-
   const { id } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(getTodoByID(id));
+  }, [dispatch, id]);
 
   return (
     <StContainer>
       <StDialog>
         <div>
           <StDialogHeader>
-            <div>ID :{todo.id}</div>
+            <div>ID : {id}</div>
             <StButton
               borderColor="#ddd"
               onClick={() => {
