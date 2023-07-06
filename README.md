@@ -18,7 +18,7 @@ const onClickHandler = (event) => {
 };
 ```
 
-##### 설명
+<br>
 
 dispatch로 데이터를 보내는 코드와
 보내야하는 newTodo데이터가 누락되어 있었다.
@@ -40,7 +40,7 @@ case ADD_TODO:
       };
 ```
 
-##### 설명
+<br>
 
 todos.js의 case문에서 추가가 아닌 교체가 되는 문제였다.
 todos부분을 [...state.todos, action.payload]로 수정하여 해결했다.
@@ -57,7 +57,7 @@ case DELETE_TODO:
       };
 ```
 
-##### 설명
+<br>
 
 todos.js의 case문이 아예 누락되어 있었다.
 filter메서드를 통해 todos중에서 payload로 받은 id와 같지 않은 것을 리턴하는 내용의 case DELETE_TODO를 추가하여 해결했다.
@@ -76,7 +76,7 @@ filter메서드를 통해 todos중에서 payload로 받은 id와 같지 않은 �
 </StLink>
 ```
 
-##### 설명
+<br>
 
 Link설정이 index로 잘못 되어 있었다.
 todo.id로 변경해 해결하였다.
@@ -91,7 +91,7 @@ todo.id로 변경해 해결하였다.
 </StButton>
 ```
 
-##### 설명
+<br>
 
 단순 함수명이 아닌 화살표 함수로 onClick 함수를 적었고
 인자로 todo.id를 보내주었다.
